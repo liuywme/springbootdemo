@@ -11,6 +11,7 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -22,6 +23,9 @@ import java.util.Map;
 @Slf4j
 @Service
 public class HomeAssistantServiceImpl implements HomeAssistantService {
+
+    @Value("${home_assistant_url}")
+    private String apiUrl;
 
     String encoding = "UTF-8";
 
@@ -71,6 +75,8 @@ public class HomeAssistantServiceImpl implements HomeAssistantService {
         }
         return body;
     }
+
+
 
     private String callUrl(String url, Map<String, String> map) {
         String body = null;

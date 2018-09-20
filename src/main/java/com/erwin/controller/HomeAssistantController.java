@@ -1,6 +1,7 @@
 package com.erwin.controller;
 
 import com.erwin.service.HomeAssistantService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by yanwen.liu on 2018/9/20.
  */
 @RestController
+@Slf4j
 public class HomeAssistantController {
 
     @Autowired
@@ -29,7 +31,7 @@ public class HomeAssistantController {
         return "关闭灯光:" + body;
     }
 
-    @RequestMapping(value = "getData", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/getData", method = {RequestMethod.GET, RequestMethod.POST})
     public String getData(String type) {
         String body = assistantService.getData(type);
         System.out.println(body);
