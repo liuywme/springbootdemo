@@ -44,6 +44,9 @@ public class HomeAssistantTest {
     @Test
     public void getDataTest() {
         String type = "climate.mi_acpartner";
+//        type = "sun.sun";
+//        type = "binary_sensor.motion_sensor_158d0002006dee_2";
+//        type = "sensor.humidity_158d0001f23ccf";
         String result = controller.getData(type);
         System.out.println(result);
     }

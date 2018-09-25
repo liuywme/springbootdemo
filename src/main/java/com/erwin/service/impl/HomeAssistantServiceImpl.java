@@ -33,7 +33,7 @@ public class HomeAssistantServiceImpl implements HomeAssistantService {
     public String turnOn() {
         String body = null;
         try {
-            String url = "http://192.168.95.102:8123/api/services/light/turn_on";
+            String url = apiUrl + "/services/light/turn_on";
 
             Map<String, String> map = new HashMap<>();
             map.put("entity_id", "light.xiaomi_philips_light");
@@ -50,7 +50,7 @@ public class HomeAssistantServiceImpl implements HomeAssistantService {
     public String turnOff() {
         String body = null;
         try {
-            String url = "http://192.168.95.102:8123/api/services/light/turn_off";
+            String url = apiUrl + "/services/light/turn_off";
 
             Map<String, String> map = new HashMap<>();
             map.put("entity_id", "light.xiaomi_philips_light");
@@ -67,7 +67,7 @@ public class HomeAssistantServiceImpl implements HomeAssistantService {
     public String getData(String type) {
         String body = null;
         try {
-            String url = "http://192.168.95.102:8123/api/states/" + type;
+            String url = apiUrl + "/states/" + type;
 
             body = callUrl(url);
         } catch (Exception e) {
